@@ -54,7 +54,7 @@ async def favicon():
 async def publish_message(data: MessageData):
     """Recibe un mensaje por API y lo publica en MQTT"""
     try:
-        result = mqtt_client.publish(TOPIC, data.message, qos=1, retain=True)
+        result = mqtt_client.publish(TOPIC, data.message, qos=2, retain=True)
         print("Mensaje")
         if result.rc != 0:
             raise HTTPException(status_code=500, detail=f"Error al publicar: {result.rc}")
