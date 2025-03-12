@@ -14,7 +14,7 @@ app = FastAPI(title="API MQTT Publisher")
 
 # Configuración del broker MQTT
 BROKER = "broker.mqtt.cool"
-PORT = 1883  # Puerto estándar para MQTT
+PORT = 8000  # Puerto estándar para MQTT
 TOPIC = "ciros"
 CLIENT_ID = "MQTT_Publisher_Client"
 
@@ -32,7 +32,7 @@ def on_publish(client, userdata, mid):
     print(f"✅ Mensaje publicado con éxito (Message ID: {mid})")
 
 # Crear cliente MQTT
-mqtt_client = mqtt.Client(client_id=CLIENT_ID)
+mqtt_client = mqtt.Client(client_id=CLIENT_ID, transport="websockets", callback_api_version=2)
 mqtt_client.on_connect = on_connect
 mqtt_client.on_disconnect = on_disconnect
 mqtt_client.on_publish = on_publish
