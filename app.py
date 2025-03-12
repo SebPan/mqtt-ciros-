@@ -61,12 +61,14 @@ async def publish_message(data: MessageData):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
+'''
 # Limpieza al cerrar la aplicación
 @app.on_event("shutdown")
 def shutdown_event():
     mqtt_client.loop_stop()
     mqtt_client.disconnect()
     print("Cliente MQTT desconectado")
+'''
 
 if __name__ == "__main__":
     import uvicorn
