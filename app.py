@@ -32,7 +32,7 @@ def on_publish(client, userdata, mid):
     print(f"✅ Mensaje publicado con éxito (Message ID: {mid})")
 
 # Crear cliente MQTT
-mqtt_client = mqtt.Client(client_id=CLIENT_ID, transport="websockets")
+mqtt_client = mqtt.Client(client_id="MQTT_Test", transport="websockets", callback_api_version=2)
 mqtt_client.on_connect = on_connect
 mqtt_client.on_disconnect = on_disconnect
 mqtt_client.on_publish = on_publish
