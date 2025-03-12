@@ -14,7 +14,7 @@ app = FastAPI(title="API MQTT Publisher")
 
 # Configuración del broker MQTT
 BROKER = "broker.mqtt.cool"
-PORT = 8884  # Puerto estándar para MQTT
+PORT = 1883  # Puerto estándar para MQTT
 TOPIC = "ciros"
 CLIENT_ID = "MQTT_Publisher_Client"
 
