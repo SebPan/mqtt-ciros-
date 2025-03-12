@@ -28,6 +28,9 @@ def on_connect(client, userdata, flags, rc, properties=None):
 def on_disconnect(client, userdata, rc, properties=None):
     print(f"Desconectado con código: {rc}")
 
+def on_publish(client, userdata, mid):
+    print(f"✅ Mensaje publicado con éxito (Message ID: {mid})")
+
 # Crear cliente MQTT
 mqtt_client = mqtt.Client(client_id=CLIENT_ID)
 mqtt_client.on_connect = on_connect
